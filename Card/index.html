@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy 33rd Anniversary</title>
+  <style>
+    body {
+      background-color: #fdf6e3;
+      font-family: 'Georgia', serif;
+      color: #5a4634;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      cursor: pointer; /* indicates user interaction needed for audio */
+    }
+    header {
+      padding: 40px 20px;
+      background-color: #f3e0c7;
+      border-bottom: 3px solid #d4b483;
+    }
+    header h1 {
+      font-size: 2.5em;
+      margin: 0;
+    }
+    header p {
+      font-size: 1.2em;
+      margin-top: 10px;
+    }
+    .slideshow {
+      max-width: 800px;
+      margin: 40px auto;
+      position: relative;
+      border: 8px solid #d4b483;
+      border-radius: 12px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      background-color: #fffaf3;
+    }
+    .slide {
+      display: none;
+    }
+    .slide img {
+      width: 100%;
+      border-bottom: 4px solid #d4b483;
+    }
+    .caption {
+      padding: 15px;
+      font-size: 1.1em;
+    }
+    footer {
+      padding: 20px;
+      background-color: #f3e0c7;
+      border-top: 3px solid #d4b483;
+      font-size: 1.1em;
+    }
+    .hearts {
+      font-size: 1.5em;
+      color: #b44b4b;
+    }
+    .click-note {
+      font-size: 0.9em;
+      color: #5a4634;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>❤️ Happy 33rd Anniversary Jamie ❤️</h1>
+  <p>I love you!</p>
+</header>
+
+<div class="slideshow">
+  <div class="slide">
+    <img src="photos/photo1.jpg" alt="Slide 1">
+    <div class="caption">Our adventure begins ❤️</div>
+  </div>
+  <div class="slide">
+    <img src="photos/photo2.jpg" alt="Slide 2">
+    <div class="caption">Building a family together</div>
+  </div>
+  <div class="slide">
+    <img src="photos/photo3.jpg" alt="Slide 3">
+    <div class="caption">Three kids, endless joy ❤️</div>
+  </div>
+  <div class="slide">
+    <img src="photos/photo4.jpg" alt="Slide 4">
+    <div class="caption">Vacations, laughter, and love</div>
+  </div>
+  <div class="slide">
+    <img src="photos/photo5.jpg" alt="Slide 5">
+    <div class="caption">Through the ups and downs ❤️</div>
+  </div>
+  <div class="slide">
+    <img src="photos/photo6.jpg" alt="Slide 6">
+    <div class="caption">Our little moments mean the most</div>
+  </div>
+  <div class="slide">
+    <img src="photos/photo7.jpg" alt="Slide 7">
+    <div class="caption">Celebrating milestones ❤️</div>
+  </div>
+  <div class="slide">
+    <img src="photos/photo8.jpg" alt="Slide 8">
+    <div class="caption">Together through it all</div>
+  </div>
+  <div class="slide">
+    <img src="photos/photo9.jpg" alt="Slide 9">
+    <div class="caption">Our love keeps growing ❤️</div>
+  </div>
+  <div class="slide">
+    <img src="photos/photo10.jpg" alt="Slide 10">
+    <div class="caption">Here’s to forever and always</div>
+  </div>
+</div>
+
+<footer>
+  <p class="hearts">❤️❤️❤️</p>
+  <p class="click-note">Click anywhere to start the music 🎵</p>
+</footer>
+
+<audio id="bg-audio" autoplay loop muted>
+  <source src="audio/Aerosmith.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+  // Slideshow logic
+  let slideIndex = 0;
+  const slides = document.getElementsByClassName("slide");
+  function showSlides() {
+    for (let i = 0; i < slides.length; i++) slides[i].style.display = "none";
+    slideIndex++;
+    if(slideIndex > slides.length) slideIndex = 1;
+    slides[slideIndex-1].style.display = "block";
+    setTimeout(showSlides, 4000);
+  }
+  showSlides();
+
+  // Safari & other browsers: unmute audio on first click
+  document.body.addEventListener('click', function() {
+    const audio = document.getElementById('bg-audio');
+    if(audio.muted) audio.muted = false;
+  }, { once: true });
+</script>
+
+</body>
+</html>
