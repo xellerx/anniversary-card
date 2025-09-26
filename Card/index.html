@@ -12,7 +12,7 @@
       margin: 0;
       padding: 0;
       text-align: center;
-      cursor: pointer; /* indicates user interaction needed for audio */
+      cursor: pointer;
     }
     header {
       padding: 40px 20px;
@@ -69,67 +69,62 @@
 <header>
   <h1>❤️ Happy 33rd Anniversary Jamie ❤️</h1>
   <p>I love you!</p>
+  <div class="click-note">Click anywhere to enable audio playback.</div>
 </header>
 
 <div class="slideshow">
   <div class="slide">
-    <img src="photos/photo1.jpg" alt="Slide 1">
+    <img src="photos/photo1.jpg" alt="Our adventure begins">
     <div class="caption">Our adventure begins ❤️</div>
   </div>
   <div class="slide">
-    <img src="photos/photo2.jpg" alt="Slide 2">
+    <img src="photos/photo2.jpg" alt="Building a family together">
     <div class="caption">Building a family together</div>
   </div>
   <div class="slide">
-    <img src="photos/photo3.jpg" alt="Slide 3">
+    <img src="photos/photo3.jpg" alt="Three kids, endless joy">
     <div class="caption">Three kids, endless joy ❤️</div>
   </div>
   <div class="slide">
-    <img src="photos/photo4.jpg" alt="Slide 4">
+    <img src="photos/photo4.jpg" alt="Vacations, laughter, and love">
     <div class="caption">Vacations, laughter, and love</div>
   </div>
   <div class="slide">
-    <img src="photos/photo5.jpg" alt="Slide 5">
+    <img src="photos/photo5.jpg" alt="Through the ups and downs">
     <div class="caption">Through the ups and downs ❤️</div>
   </div>
   <div class="slide">
-    <img src="photos/photo6.jpg" alt="Slide 6">
+    <img src="photos/photo6.jpg" alt="Our little moments mean the most">
     <div class="caption">Our little moments mean the most</div>
   </div>
   <div class="slide">
-    <img src="photos/photo7.jpg" alt="Slide 7">
+    <img src="photos/photo7.jpg" alt="Celebrating milestones">
     <div class="caption">Celebrating milestones ❤️</div>
   </div>
   <div class="slide">
-    <img src="photos/photo8.jpg" alt="Slide 8">
+    <img src="photos/photo8.jpg" alt="Together through it all">
     <div class="caption">Together through it all</div>
   </div>
   <div class="slide">
-    <img src="photos/photo9.jpg" alt="Slide 9">
+    <img src="photos/photo9.jpg" alt="Our love keeps growing">
     <div class="caption">Our love keeps growing ❤️</div>
   </div>
   <div class="slide">
-    <img src="photos/photo10.jpg" alt="Slide 10">
+    <img src="photos/photo10.jpg" alt="Here’s to forever and always">
     <div class="caption">Here’s to forever and always</div>
   </div>
 </div>
 
 <footer>
   <p class="hearts">❤️❤️❤️</p>
-  
-  <audio controls>
+  <audio id="anniv-audio" controls>
     <source src="audio/Aerosmith.mp3" type="audio/mpeg">
+    <source src="audio/Aerosmith.ogg" type="audio/ogg">
     Your browser does not support the audio element.
   </audio>
 </footer>
 
-<audio controls>
-  <source src="audio/Aerosmith.mp3" type="audio/mpeg">
-  Your browser does not support the audio element.
-</audio>
-
 <script>
-  // Slideshow logic
   let slideIndex = 0;
   const slides = document.getElementsByClassName("slide");
   function showSlides() {
@@ -141,10 +136,11 @@
   }
   showSlides();
 
-  // Safari & other browsers: unmute audio on first click
   document.body.addEventListener('click', function() {
-    const audio = document.getElementById('bg-audio');
-    if(audio.muted) audio.muted = false;
+    const audio = document.getElementById('anniv-audio');
+    audio.muted = false;
+    // Optional: Uncomment below to start playback automatically after click
+    // if (audio.paused) audio.play();
   }, { once: true });
 </script>
 
